@@ -23,11 +23,33 @@ namespace Pr_rob3_vp
         public MyUserControl()
         {
             InitializeComponent();
+
+            usernameBox.KeyDown += Input_KeyDown;
+            passwordBox.KeyDown += Input_KeyDown;
+        }
+        private void Input_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                button_Click(sender, e);
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            txtBox.Text = "Ви натиснули на кнопку";
+            string username = usernameBox.Text;
+            string password = passwordBox.Password;
+
+            if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(password))
+            {
+                messageBlock.Text = "Вхід успішний!";
+                messageBlock.Foreground = Brushes.Green;
+            }
+            else
+            {
+                messageBlock.Text = "Будь ласка, заповніть усі поля!";
+                messageBlock.Foreground = Brushes.Red;
+            }
         }
     }
 }
