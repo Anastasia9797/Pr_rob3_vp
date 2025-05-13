@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:control = "clr-namespace:Pr_rob3_vp"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <control:MyUserControl/>
-    </Grid>
+    <StackPanel>
+        <control:MyCustomControl x:Name = "customControl" Content = "Click Me" Width = "70" Margin = "10" Click = "customControl_Click"/>
+        <TextBlock Name = "txtBlock" Width = "250" Height = "30"/>
+    </StackPanel>
 </Window>
